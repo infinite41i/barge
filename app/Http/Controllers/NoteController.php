@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Notebook;
+use App\Models\Note;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class NotebookController extends Controller
+class NoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,7 @@ class NotebookController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::id();
-        $notebooks = Notebook::where('user_id', $user_id)->get();
-
-        return view('notebooks')->with('notebooks', $notebooks);
+        //
     }
 
     /**
@@ -39,38 +36,30 @@ class NotebookController extends Controller
      */
     public function store(Request $request)
     {
-        $notebook_name = $request->input('notebook_name');
-        $user_id = Auth::id();
-        $notebook = Notebook::create([
-            'user_id' => $user_id,
-            'name' => $notebook_name,
-            'has_password' => false,
-            'password' => null,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        return redirect()->route('notebooks.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Notebook  $notebook
+     * @param  \App\Models\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function show(Notebook $notebook)
+    public function show(Note $note)
     {
-        return view('notebook')->with(['notebook' => $notebook]);
+        $user_id = Auth::id();
+        if($note->user_id == $user_id)
+            return view('note')->with('note', $note);
+        abort(404);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Notebook  $notebook
+     * @param  \App\Models\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function edit(Notebook $notebook)
+    public function edit(Note $note)
     {
         //
     }
@@ -79,10 +68,10 @@ class NotebookController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Notebook  $notebook
+     * @param  \App\Models\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Notebook $notebook)
+    public function update(Request $request, Note $note)
     {
         //
     }
@@ -90,10 +79,10 @@ class NotebookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Notebook  $notebook
+     * @param  \App\Models\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Notebook $notebook)
+    public function destroy(Note $note)
     {
         //
     }

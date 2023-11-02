@@ -32,7 +32,7 @@
                     <ul class="flex flex-col space-y-3">
                         @forelse ($notebooks as $notebook)
                             <li class="border-b border-sky-300 last:border-none pb-2 last:pb-0">
-                                <a href="#" class="rtl:float-right ltr:float-left flex items-center hover:text-stone-500">
+                                <a href="{{ route('notebooks.show', ['notebook' => $notebook]) }}" class="rtl:float-right ltr:float-left flex items-center hover:text-stone-500">
                                     <span class="ltr:pr-2 rtl:pl-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
                                             <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
