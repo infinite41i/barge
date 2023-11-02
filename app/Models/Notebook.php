@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Notebook extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'user_id', 'has_password', 'password'];
 }

@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('notebooks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('name');
+            $table->boolean('has_password');
+            $table->string('password')->nullable();
+            // $table->string('color');
             $table->timestamps();
         });
     }
