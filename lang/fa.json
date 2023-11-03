@@ -9,5 +9,11 @@
     "New Notebook": "دفترچه جدید",
     "notebook name": "نام دفترچه",
     "Manage Notebook": "مدیریت دفترچه",
-    "No notebooks found. create one!": "دفترچه‌ای وجود ندارد. یکی بسازید!"
+    "No notebooks found. create one!": "دفترچه‌ای وجود ندارد. یکی بسازید!",
+    "New Note": "یادداشت جدید",
+    "Creating new note in": "نوشتن یادداشت تازه در",
+    "Title": "عنوان یادداشت",
+    "Take a note now...": "چیزی یادداشت کنید...",
+    "Discard": "لغو",
+    "Save": "ذخیره"
 }

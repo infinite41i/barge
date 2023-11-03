@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Note;
+use App\Models\Notebook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,9 +24,9 @@ class NoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Notebook $notebook)
     {
-        //
+        return view('notes.create')->with(['notebook' => $notebook]);
     }
 
     /**
@@ -34,9 +35,21 @@ class NoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Notebook $notebook)
     {
-        //
+        $user_id = Auth::id();
+        $title = $request->input('title');
+        $contents = $request->input('contents');
+        $note = Note::create([
+            'notebook_id' => $notebook->id,
+            'user_id' => $user_id,
+            'title' => $title,
+            'contents' => $contents,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return redirect()->route('notebooks.show', ['notebook' => $notebook]);
     }
 
     /**

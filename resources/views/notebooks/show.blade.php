@@ -1,8 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $notebook->name }}
-        </h2>
+        <div class="flex items-center">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ $notebook->name }}
+            </h2>
+            <div class="flex-grow">&nbsp;</div>
+            <a href="{{ route('notebooks.notes.create', ['notebook' => $notebook]) }}" class="rounded-md bg-blue-500 text-white px-3 py-2">{{ __('New Note') }}</a>
+        </div>
     </x-slot>
 
     <div class="py-8">
