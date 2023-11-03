@@ -49,7 +49,7 @@ class NoteController extends Controller
     {
         $user_id = Auth::id();
         if($note->user_id == $user_id)
-            return view('note')->with('note', $note);
+            return view('notes.show')->with('note', $note);
         abort(404);
     }
 

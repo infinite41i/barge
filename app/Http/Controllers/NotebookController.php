@@ -18,7 +18,7 @@ class NotebookController extends Controller
         $user_id = Auth::id();
         $notebooks = Notebook::where('user_id', $user_id)->get();
 
-        return view('notebooks')->with('notebooks', $notebooks);
+        return view('notebooks.index')->with('notebooks', $notebooks);
     }
 
     /**
@@ -61,7 +61,7 @@ class NotebookController extends Controller
      */
     public function show(Notebook $notebook)
     {
-        return view('notebook')->with(['notebook' => $notebook]);
+        return view('notebooks.show')->with(['notebook' => $notebook]);
     }
 
     /**
