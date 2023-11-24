@@ -34,7 +34,7 @@
                 برگه!
             </div>
             @if (Route::has('login'))
-                <div class="hidden text-center px-6 py-4 sm:block">
+                <div class="text-center px-6 py-4 sm:block">
                 @auth
                     <a href="{{ url('/dashboard') }}" class="bg-sky-700 rounded-lg p-2 text-lg text-white dark:text-gray-500 shadow-md">app</a>
                 @else
