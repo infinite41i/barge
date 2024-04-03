@@ -18,7 +18,7 @@
                         @csrf
                             <input type="text" name="title" id="title" placeholder="{{ __('Title') }}">
                             <textarea name="contents" id="contents" cols="30" rows="10" placeholder="{{ __('Take a note now...') }}"></textarea>
-                            <button type="button" id="discard_note" class="rounded-md bg-red-400 text-white px-3 py-2">
+                            <button type="button" id="discard_note" onclick="location.href='{{ route('notebooks.show', ['notebook' => $notebook]) }}'" class="rounded-md bg-red-400 text-white px-3 py-2">
                                 {{ __('Discard') }}
                             </button>
                             <button type="submit" id="save_note" type="submit" class="rounded-md bg-blue-500 text-white px-3 py-2">
