@@ -6,6 +6,7 @@ use App\Models\Note;
 use App\Models\Notebook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class NoteController extends Controller
 {
@@ -60,10 +61,8 @@ class NoteController extends Controller
      */
     public function show(Note $note)
     {
-        $user_id = Auth::id();
-        if($note->user_id == $user_id)
-            return view('notes.show')->with('note', $note);
-        abort(404);
+        Gate::authorize('view', $note);
+        return view('notes.show')->with('note', $note);
     }
 
     /**
