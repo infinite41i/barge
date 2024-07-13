@@ -7,6 +7,7 @@ use App\Models\Notebook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Redirect;
 
 class NoteController extends Controller
 {
@@ -73,7 +74,8 @@ class NoteController extends Controller
      */
     public function edit(Note $note)
     {
-        //
+        Gate::authorize('update', $note);
+        return view('notes.edit')->with('note', $note);
     }
 
     /**
@@ -85,7 +87,12 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
-        //
+        Gate::authorize('update', $note);
+        $note->update([
+            'title' => $request->input('title'),
+            'contents' => $request->input('contents')
+        ]);
+        return Redirect::route('notes.show', ['note' => $note]);
     }
 
     /**

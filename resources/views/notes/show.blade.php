@@ -9,7 +9,7 @@
                             <div class="flex flex-nowrap items-center border-b-4 border-blue-200">
                                 <div class="text-3xl font-bold">{{ $note->title }}</div>
                                 <div class="flex-grow">&nbsp;</div>
-                                <a href="#" class="">
+                                <a href="{{ route('notes.edit', ['note' => $note]) }}" class="">
                                     <svg class="fill-blue-500" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                         width="1.5rem" height="1.5rem" viewBox="0 0 24 24">
 
