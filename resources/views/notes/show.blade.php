@@ -4,12 +4,20 @@
         <div class="max-w-full mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    <div class="px-2 mx-3">
+                        <a href="{{ route('notebooks.show', ['notebook' => $note->notebook_id]) }}">
+                         <svg class="inline w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+                          </svg>
+                          {{ __("Back to notebook") }}
+                        </a>
+                    </div>
                     <div class="flex flex-col lg:flex-row">
                         <div class="lg:basis-3/4 bg-sky-100 mx-3 my-2 px-2 py-3 min-h-[50px] rounded-lg">
                             <div class="flex flex-nowrap items-center border-b-4 border-blue-200">
                                 <div class="text-3xl font-bold">{{ $note->title }}</div>
                                 <div class="flex-grow">&nbsp;</div>
-                                <a href="#" class="">
+                                <a href="{{ route('notes.edit', ['note' => $note]) }}" class="">
                                     <svg class="fill-blue-500" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                         width="1.5rem" height="1.5rem" viewBox="0 0 24 24">
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Notebook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class NotebookController extends Controller
 {
@@ -61,6 +62,7 @@ class NotebookController extends Controller
      */
     public function show(Notebook $notebook)
     {
+        Gate::authorize('view', $notebook);
         return view('notebooks.show')->with(['notebook' => $notebook]);
     }
 
